@@ -1,9 +1,144 @@
 <?xml version="1.0" encoding="utf-8"?>
-<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    android:id="@+id/gameTableLayout"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:orientation="vertical"
     android:layout_width="fill_parent"
-    android:layout_height="wrap_content"
-    android:columnCount="7"
-    android:stretchColumns="*"
-    android:shrinkColumns="*">
-</TableLayout>
+    android:layout_height="fill_parent">
+
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingTop="5dp"
+        android:paddingBottom="5dp"
+        android:background="#2A635F5F"
+        android:layout_marginBottom="5dp"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textSize="7pt"
+        android:layout_alignParentTop="true"
+        android:text="That another PM Game"/>
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/resourcesTableLayout"
+        android:layout_marginLeft="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="1"
+        android:layout_below="@id/title"
+        android:background="@drawable/custom_border">
+    </TableLayout>
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/spent"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/title"
+        android:layout_toRightOf="@id/resourcesTableLayout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="1"
+        android:layout_marginLeft="45dp"
+        android:background="@drawable/custom_border">
+    </TableLayout>
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/instructions"
+        android:layout_marginRight="5dp"
+        android:layout_marginTop="5dp"
+        android:layout_below="@id/title"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:columnCount="1"
+        android:background="@drawable/custom_border">
+    </TableLayout>
+    <Button xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/button_play"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play"
+        android:layout_below="@id/resourcesTableLayout"
+        android:layout_alignParentRight="true"
+        android:onClick="startGame"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="15dp"
+        android:layout_marginBottom="10dp"
+        android:enabled="false"
+        />
+
+    <Button xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/button_restart"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="5dp"
+        android:text="New Game"
+        android:layout_below="@id/resourcesTableLayout"
+        android:layout_toLeftOf="@id/button_play"
+        android:onClick="restartGame"/>
+
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/budget"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="300dp"
+        android:text="Budget spent: $0"
+        android:layout_below="@id/resourcesTableLayout"/>
+    <TextView xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="200dp"
+        android:text=""
+        android:layout_below="@id/resourcesTableLayout"/>
+    <FrameLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="fill_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/button_play"
+        android:id="@+id/root_view">
+
+        <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:id="@+id/gameTableLayout"
+            android:layout_width="780dp"
+            android:layout_height="fill_parent"
+            android:columnCount="7"
+            android:stretchColumns="*"
+            android:shrinkColumns="*">
+        </TableLayout>
+
+        <com.example.pmgame.ArrowLayout
+            android:id="@+id/arrow_layout_1"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            />
+        <com.example.pmgame.ArrowLayout
+            android:id="@+id/arrow_layout_2"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            />
+        <com.example.pmgame.ArrowLayout
+            android:id="@+id/arrow_layout_3"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            />
+        <com.example.pmgame.ArrowLayout
+            android:id="@+id/arrow_layout_4"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            />
+        <com.example.pmgame.ArrowLayout
+            android:id="@+id/arrow_layout_5"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            />
+        <View
+            android:layout_width="3dp"
+            android:layout_height="match_parent"
+            android:layout_marginLeft="95dp"
+            android:layout_marginBottom="15dp"
+            android:background="#4CAF50"
+            android:id="@+id/timeLine"/>
+    </FrameLayout>
+</RelativeLayout>
